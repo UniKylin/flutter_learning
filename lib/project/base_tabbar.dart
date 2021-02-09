@@ -31,30 +31,25 @@ class _BaseTabBarState extends State<BaseTabBar> {
 
   List<BottomNavigationBarItem> bottomTabs = [
     BottomNavigationBarItem(
-      title: Text("微信"),
+      label: '微信',
       icon: JhLoadAssetImage('tab/nav_tab_1', width: _iconWH),
       activeIcon: JhLoadAssetImage('tab/nav_tab_1_on', width: _iconWH),
     ),
     BottomNavigationBarItem(
-      title: Text("通讯录"),
+      label: "通讯录",
       icon: JhLoadAssetImage('tab/nav_tab_2', width: _iconWH),
       activeIcon: JhLoadAssetImage('tab/nav_tab_2_on', width: _iconWH),
     ),
     BottomNavigationBarItem(
-      title: Text("发现"),
-//      icon: JhLoadAssetImage('tab/nav_tab_3', width: _iconWH),
+      label: "发现",
       activeIcon: JhLoadAssetImage('tab/nav_tab_3_on', width: _iconWH),
       icon: Badge(
           padding: EdgeInsets.all(4),
           position: BadgePosition.topRight(top: -4, right: -4),
           child: JhLoadAssetImage('tab/nav_tab_3', width: _iconWH)),
-//      activeIcon: Badge(
-//          padding: EdgeInsets.all(4),
-//          position: BadgePosition.topRight(top: -4, right: -4),
-//          child: JhLoadAssetImage('tab/nav_tab_3_on', width: _iconWH)),
     ),
     BottomNavigationBarItem(
-      title: Text("我的"),
+      label: "我的",
       icon: JhLoadAssetImage('tab/nav_tab_4', width: _iconWH),
       activeIcon: JhLoadAssetImage('tab/nav_tab_4_on', width: _iconWH),
     ),
@@ -62,7 +57,6 @@ class _BaseTabBarState extends State<BaseTabBar> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     SchedulerBinding.instance.addPostFrameCallback((Duration timestamp) {
@@ -83,40 +77,11 @@ class _BaseTabBarState extends State<BaseTabBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//      backgroundColor: Colors.white,
       body: IndexedStack(
         index: _currentIndex,
         children: _pageList,
       ),
-      bottomNavigationBar:
-
-//        Theme(
-//          data: ThemeData(
-//            highlightColor: Color.fromRGBO(0, 0, 0, 0),
-//            splashColor: Color.fromRGBO(0, 0, 0, 0),
-//          ),
-//          child:
-//          BottomNavigationBar(
-////        unselectedItemColor:Colors.red,  //未选中颜色
-////        selectedItemColor:Colors.yellow,  //选中颜色
-//            fixedColor: selColor,  //选中的颜色
-//            unselectedFontSize:_fontSize,
-//            selectedFontSize:_fontSize,
-//            type:BottomNavigationBarType.fixed,   //配置底部BaseTabBar可以有多个按钮
-//            items: bottomTabs,
-//            currentIndex: this._currentIndex,   //配置对应的索引值选中
-//            onTap: (int index){
-//              setState(() {  //改变状态
-//                this._currentIndex=index;
-//              });
-//            },
-//          ),
-//
-//        )
-
-          BottomNavigationBar(
-//        unselectedItemColor:Colors.red,  //未选中颜色
-//        selectedItemColor:Colors.yellow,  //选中颜色
+      bottomNavigationBar: BottomNavigationBar(
         fixedColor: selColor,
         //选中的颜色
         unselectedFontSize: _fontSize,
@@ -127,10 +92,12 @@ class _BaseTabBarState extends State<BaseTabBar> {
         currentIndex: this._currentIndex,
         //配置对应的索引值选中
         onTap: (int index) {
-          setState(() {
-            //改变状态
-            this._currentIndex = index;
-          });
+          setState(
+            () {
+              //改变状态
+              this._currentIndex = index;
+            },
+          );
         },
       ),
     );
