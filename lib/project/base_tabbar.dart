@@ -24,7 +24,12 @@ class BaseTabBar extends StatefulWidget {
 
 class _BaseTabBarState extends State<BaseTabBar> {
   int _currentIndex = 0;
-  List<Widget> _pageList = [OnePage(), TwoPage(), ThreePage(), FourPage()];
+  List<Widget> _pageList = [
+    OnePage(),
+    TwoPage(),
+    ThreePage(),
+    FourPage(),
+  ];
   static double _iconWH = 24.0;
   static double _fontSize = 10.0;
   Color selColor = Color(0xFF3BB815);
@@ -44,9 +49,10 @@ class _BaseTabBarState extends State<BaseTabBar> {
       label: "发现",
       activeIcon: JhLoadAssetImage('tab/nav_tab_3_on', width: _iconWH),
       icon: Badge(
-          padding: EdgeInsets.all(4),
-          position: BadgePosition.topRight(top: -4, right: -4),
-          child: JhLoadAssetImage('tab/nav_tab_3', width: _iconWH)),
+        padding: EdgeInsets.all(4),
+        position: BadgePosition.topRight(top: -4, right: -4),
+        child: JhLoadAssetImage('tab/nav_tab_3', width: _iconWH),
+      ),
     ),
     BottomNavigationBarItem(
       label: "我的",
